@@ -1,10 +1,10 @@
 import streamlit as st
 import cv2
 import numpy as np
-from pyzbar import pyzbar
 from PIL import Image
 import re
 import io
+from pyzbar import pyzbar
 
 # Configuração da página
 st.set_page_config(
@@ -190,8 +190,9 @@ if input_method == "Upload de Imagem":
                         fields = parse_atcud_fields(qr['data'])
                         
                         if fields:
+                            st.markdown("---")
                             for field_name, field_value in fields.items():
-                                st.text_input(field_name, value=field_value, key=f"field_{i}_{field_name}")
+                                st.markdown(f"**{field_name}:** {field_value}")
                         else:
                             st.warning("Não foi possível identificar campos específicos.")
                         
@@ -245,8 +246,9 @@ else:  # Webcam
                             fields = parse_atcud_fields(qr['data'])
                             
                             if fields:
+                                st.markdown("---")
                                 for field_name, field_value in fields.items():
-                                    st.text_input(field_name, value=field_value, key=f"cam_field_{i}_{field_name}")
+                                    st.markdown(f"**{field_name}:** {field_value}")
                 else:
                     st.warning("⚠️ Nenhum QR Code encontrado.")
     except Exception as e:
