@@ -3,3 +3,4 @@ opencv-python-headless>=4.8.0
 numpy>=1.24.0
 pyzbar>=0.1.9
 Pillow>=10.0.0
+python-debian>=0.1.49; sys_platform == 'linux'

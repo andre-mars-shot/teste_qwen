@@ -17,17 +17,44 @@ Aplicação Streamlit para leitura e extração de campos ATCUD de códigos QR e
 
 ## Instalação
 
-1. Instale as dependências:
+### Linux (Ubuntu/Debian)
+
+1. Instale a biblioteca zbar (necessária para o pyzbar):
+```bash
+sudo apt-get install libzbar0
+```
+
+2. Instale as dependências Python:
 ```bash
 pip install -r requirements.txt
 ```
 
-2. Execute a aplicação:
+### macOS
+
+1. Instale a biblioteca zbar via Homebrew:
+```bash
+brew install zbar
+```
+
+2. Instale as dependências Python:
+```bash
+pip install -r requirements.txt
+```
+
+### Windows
+
+O instalador do pyzbar já inclui as bibliotecas necessárias. Basta:
+```bash
+pip install -r requirements.txt
+```
+
+### Executar a aplicação
+
 ```bash
 streamlit run app.py
 ```
 
-3. A aplicação abrirá automaticamente no seu navegador em `http://localhost:8501`
+A aplicação abrirá automaticamente no seu navegador em `http://localhost:8501`
 
 ## Requisitos
 
