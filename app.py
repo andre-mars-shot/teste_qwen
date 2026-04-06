@@ -190,9 +190,11 @@ if input_method == "Upload de Imagem":
                         fields = parse_atcud_fields(qr['data'])
                         
                         if fields:
-                            st.markdown("---")
+                            # Criar texto formatado com cada campo numa linha
+                            fields_text = ""
                             for field_name, field_value in fields.items():
-                                st.markdown(f"**{field_name}:** {field_value}")
+                                fields_text += f"**{field_name}:** {field_value}\n\n"
+                            st.markdown(fields_text)
                         else:
                             st.warning("Não foi possível identificar campos específicos.")
                         
@@ -246,9 +248,11 @@ else:  # Webcam
                             fields = parse_atcud_fields(qr['data'])
                             
                             if fields:
-                                st.markdown("---")
+                                # Criar texto formatado com cada campo numa linha
+                                fields_text = ""
                                 for field_name, field_value in fields.items():
-                                    st.markdown(f"**{field_name}:** {field_value}")
+                                    fields_text += f"**{field_name}:** {field_value}\n\n"
+                                st.markdown(fields_text)
                 else:
                     st.warning("⚠️ Nenhum QR Code encontrado.")
     except Exception as e:
